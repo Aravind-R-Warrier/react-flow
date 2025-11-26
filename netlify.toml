@@ -1,6 +1,12 @@
 [build]
+  # install with legacy peer deps to avoid ERESOLVE (keeps your current react-flow-renderer)
   command = "npm install --legacy-peer-deps && npm run build"
-  publish = "build"
+  # Vite outputs to `dist`
+  publish = "dist"
 
 [build.environment]
   NPM_FLAGS = "--legacy-peer-deps"
+
+# Optional: pin Node version Netlify should use (uncomment if needed)
+# [context.production.environment]
+#   NODE_VERSION = "18"
