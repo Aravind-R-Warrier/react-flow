@@ -1,6 +1,6 @@
 import React from "react";
 import { Handle, Position } from "react-flow-renderer";
-import { FaPlay, FaCog, FaQuestion } from "react-icons/fa"; // ✅ Import Icons
+import { FaPlay, FaCog, FaQuestion } from "react-icons/fa";
 
 const nodeStyle = {
   padding: 10,
@@ -12,7 +12,7 @@ const nodeStyle = {
   border: "1px solid black",
   display: "flex",
   alignItems: "center",
-  gap: "8px", // ✅ Space between icon & text
+  gap: "8px",
   justifyContent: "center",
 };
 

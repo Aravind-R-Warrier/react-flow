@@ -23,16 +23,19 @@ const workflowSlice = createSlice({
       state.edges.push(action.payload);
     },
     removeNode: (state, action) => {
-        const nodeId = action.payload;
-        localStorage.removeItem('workflowData')
-        state.nodes = state.nodes.filter((node) => node.id !== nodeId);
-        state.edges = state.edges.filter((edge) => edge.source !== nodeId && edge.target !== nodeId);
-        
-        // Unselect node if deleted
-        if (state.selectedNode?.id === nodeId) {
-          state.selectedNode = null;
-        }
-      },
+      const nodeId = action.payload;
+      // optional: keep saved workflow removed when a node is deleted
+      localStorage.removeItem("workflowData");
+      state.nodes = state.nodes.filter((node) => node.id !== nodeId);
+      state.edges = state.edges.filter(
+        (edge) => edge.source !== nodeId && edge.target !== nodeId
+      );
+
+      // Unselect node if deleted
+      if (state.selectedNode?.id === nodeId) {
+        state.selectedNode = null;
+      }
+    },
     selectNode: (state, action) => {
       state.selectedNode = action.payload;
     },
